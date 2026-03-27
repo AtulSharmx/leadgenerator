@@ -1,17 +1,19 @@
-# LeadRadar - Product Requirements Document
+# Lead Generator - Product Requirements Document
 
 ## Overview
-LeadRadar is a premium SaaS Business Lead Finder tool that helps agencies, freelancers, and sales teams discover real businesses with contact details, ratings, and website status.
+Lead Generator is a Business Lead Finder tool that helps agencies, freelancers, and sales teams discover real businesses with contact details, ratings, and website status.
 
 ## Original Problem Statement
-Build a full stack premium SaaS web app called "LeadRadar" — a Business Lead Finder tool with React frontend, Python FastAPI backend (Node.js was original request, converted to Python per environment), and MongoDB.
+Build a full stack premium SaaS web app - a Business Lead Finder tool with React frontend, Python FastAPI backend, and MongoDB.
 
 ## User Choices
 - **Google Places API**: Mock/demo mode (API key to be added later)
 - **Authentication**: Emergent-managed Google OAuth
 - **Backend**: Python FastAPI + MongoDB
 - **Export PDF**: Branded reports with logo
-- **Pricing Page**: Static display (no Stripe integration yet)
+- **App Name**: Lead Generator (renamed from LeadRadar)
+- **Quick chips**: Removed (user types any business type)
+- **Pricing page**: Removed
 
 ## Tech Stack
 - **Frontend**: React 18, Tailwind CSS, Framer Motion, Lucide Icons
@@ -23,8 +25,8 @@ Build a full stack premium SaaS web app called "LeadRadar" — a Business Lead F
 ## Core Features Implemented ✅
 
 ### Search & Discovery
-- [x] City + Business Type search
-- [x] Quick niche chips (Gym, Salon, Restaurant, etc.)
+- [x] City + Business Type search (free-form input)
+- [x] No predefined chips - user types any business type
 - [x] Mock business data generation (50 leads per search)
 - [x] Search caching for instant repeat searches
 
@@ -66,14 +68,16 @@ Build a full stack premium SaaS web app called "LeadRadar" — a Business Lead F
 
 ### Pages
 - [x] Homepage with search
-- [x] Pricing page (3 plans: Free, Pro $9, Agency $29)
-- [x] Login page (Google OAuth)
+- [x] Login page (Google OAuth with improved UI)
 - [x] Dashboard (same as homepage when logged in)
 
 ### Authentication
 - [x] Emergent Google OAuth integration
 - [x] Session management (7-day expiry)
 - [x] User storage in MongoDB
+- [x] Profile dropdown with user info (name, email, picture)
+- [x] Plan badge in profile
+- [x] Sign out functionality
 
 ## API Endpoints
 | Method | Endpoint | Description |
