@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import HomePage from './pages/HomePage';
-import PricingPage from './pages/PricingPage';
 import LoginPage from './pages/LoginPage';
 import AuthCallback from './components/AuthCallback';
 import Toast from './components/Toast';
@@ -22,7 +21,6 @@ function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/pricing" element={<PricingPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/dashboard" element={<HomePage />} />
     </Routes>
@@ -81,9 +79,9 @@ function App() {
         credentials: 'include'
       });
       setUser(null);
-      addToast('Logged out successfully', 'success');
+      addToast('Signed out successfully', 'success');
     } catch (error) {
-      addToast('Failed to logout', 'error');
+      addToast('Failed to sign out', 'error');
     }
   };
   

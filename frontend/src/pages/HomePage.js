@@ -1,6 +1,6 @@
 import React, { useState, useContext, useCallback, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Download, Radar } from 'lucide-react';
+import { Download, Zap } from 'lucide-react';
 import { AuthContext } from '../App';
 import Navbar from '../components/Navbar';
 import SearchBox from '../components/SearchBox';
@@ -123,7 +123,7 @@ function HomePage() {
             className="flex justify-center mb-6"
           >
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-[#FF8B5B] flex items-center justify-center shadow-lg shadow-primary/30">
-              <Radar className="w-9 h-9 text-white" />
+              <Zap className="w-9 h-9 text-white" />
             </div>
           </motion.div>
           

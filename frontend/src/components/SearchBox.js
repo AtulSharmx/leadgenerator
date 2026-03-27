@@ -2,11 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, MapPin, Briefcase } from 'lucide-react';
 
-const quickNiches = [
-  'Gym', 'Salon', 'Restaurant', 'Real Estate', 
-  'Hospital', 'Hotel', 'School', 'Clinic'
-];
-
 function SearchBox({ onSearch, isLoading }) {
   const [city, setCity] = useState('');
   const [niche, setNiche] = useState('');
@@ -16,10 +11,6 @@ function SearchBox({ onSearch, isLoading }) {
     if (city && niche) {
       onSearch(city, niche);
     }
-  };
-  
-  const handleNicheClick = (selectedNiche) => {
-    setNiche(selectedNiche);
   };
   
   return (
@@ -52,29 +43,10 @@ function SearchBox({ onSearch, isLoading }) {
               type="text"
               value={niche}
               onChange={(e) => setNiche(e.target.value)}
-              placeholder="Business type (e.g., Gym, Salon)..."
+              placeholder="Business type (e.g., Cafe, Dentist, Plumber)..."
               className="w-full bg-white/[0.03] border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white placeholder-white/40 input-glow transition-all text-lg"
             />
           </div>
-        </div>
-        
-        {/* Quick Niche Chips */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {quickNiches.map((item) => (
-            <button
-              key={item}
-              type="button"
-              data-testid={`quick-chip-${item.toLowerCase().replace(' ', '-')}`}
-              onClick={() => handleNicheClick(item)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                niche === item
-                  ? 'bg-primary text-white'
-                  : 'bg-white/[0.03] border border-white/10 text-white/70 hover:bg-primary/20 hover:border-primary/30 hover:text-white'
-              }`}
-            >
-              {item}
-            </button>
-          ))}
         </div>
         
         {/* Search Button */}

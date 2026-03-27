@@ -1,5 +1,7 @@
 import React, { useRef, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Zap } from 'lucide-react';
 import { AuthContext } from '../App';
 
 // REMINDER: DO NOT HARDCODE THE URL, OR ADD ANY FALLBACKS OR REDIRECT URLS, THIS BREAKS THE AUTH
@@ -61,10 +63,20 @@ function AuthCallback() {
   
   return (
     <div className="min-h-screen bg-background flex items-center justify-center">
-      <div className="text-center">
-        <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-        <p className="text-white/60">Authenticating...</p>
-      </div>
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="text-center"
+      >
+        <div className="flex justify-center mb-6">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-[#FF8B5B] flex items-center justify-center shadow-lg shadow-primary/30">
+            <Zap className="w-9 h-9 text-white" />
+          </div>
+        </div>
+        <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-4" />
+        <p className="text-white font-medium">Signing you in...</p>
+        <p className="text-white/40 text-sm mt-1">Please wait a moment</p>
+      </motion.div>
     </div>
   );
 }
