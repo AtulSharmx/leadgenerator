@@ -1,0 +1,140 @@
+{
+  "theme": "dark",
+  "archetype": "7 (Electric & Neon) + Premium Glassmorphism",
+  "colors": {
+    "background": "#080808",
+    "primary": "#FF6B2B",
+    "primaryHover": "#E55A1F",
+    "surface": "rgba(255, 255, 255, 0.02)",
+    "surfaceBorder": "rgba(255, 255, 255, 0.08)",
+    "text": {
+      "primary": "#FFFFFF",
+      "secondary": "rgba(255, 255, 255, 0.6)",
+      "muted": "rgba(255, 255, 255, 0.4)"
+    },
+    "status": {
+      "success": "#22C55E",
+      "error": "#EF4444",
+      "warning": "#EAB308",
+      "info": "#3B82F6"
+    },
+    "categoryStrips": {
+      "Gym": "#FF6B2B",
+      "Salon": "#EC4899",
+      "Restaurant": "#EAB308",
+      "Real Estate": "#3B82F6",
+      "Hospital": "#22C55E",
+      "Hotel": "#8B5CF6",
+      "School": "#06B6D4",
+      "Clinic": "#10B981",
+      "Default": "#6B7280"
+    }
+  },
+  "typography": {
+    "headingFont": "Clash Display, sans-serif",
+    "bodyFont": "DM Sans, sans-serif",
+    "scale": {
+      "h1": "text-5xl sm:text-6xl tracking-tight font-bold",
+      "h2": "text-4xl sm:text-5xl tracking-tight font-bold",
+      "h3": "text-2xl sm:text-3xl tracking-tight font-semibold",
+      "h4": "text-xl font-medium",
+      "body": "text-base leading-relaxed",
+      "small": "text-sm",
+      "tiny": "text-xs tracking-[0.2em] uppercase"
+    }
+  },
+  "surfaces": {
+    "glassCard": "bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] shadow-sm rounded-2xl relative overflow-hidden",
+    "glassCardHover": "hover:bg-white/[0.04] hover:border-[#FF6B2B]/30 hover:shadow-[0_4px_32px_rgba(255,107,43,0.15)] hover:-translate-y-1 transition-all duration-200 ease-out",
+    "grainOverlay": "pointer-events-none fixed inset-0 z-50 opacity-[0.03] mix-blend-overlay",
+    "inputFocus": "focus:border-[#FF6B2B] focus:ring-1 focus:ring-[#FF6B2B]/50 transition-all bg-white/[0.03] border-white/[0.1] text-white rounded-xl"
+  },
+  "layout": {
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "statsGrid": "grid grid-cols-1 md:grid-cols-3 gap-6",
+    "resultsGrid": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6",
+    "pageSpacing": "py-12 md:py-20"
+  },
+  "animations": {
+    "pageLoad": {
+      "logo": "fade-in, 0s delay",
+      "heading": "slide-up, 0.2s delay",
+      "searchBox": "scale-up, 0.4s delay"
+    },
+    "searchButton": {
+      "click": "scale-95",
+      "loading": "bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent)] bg-[length:200%_100%] animate-shimmer"
+    },
+    "results": {
+      "cardStagger": "slide up, 80ms stagger, opacity 0 to 1"
+    },
+    "stats": {
+      "counter": "count up from 0 to final number in 1s"
+    },
+    "exportButton": {
+      "idle": "shimmer gradient overlay",
+      "click": "checkmark scale-in animation"
+    }
+  },
+  "components": {
+    "SearchBox": {
+      "description": "Two large input fields side by side (City, Niche). Glowing orange border on focus. Glassmorphism container with generous padding (p-8). Includes a full-width primary button with pulse animation.",
+      "testIds": ["city-input", "niche-input", "search-submit-button"]
+    },
+    "QuickChips": {
+      "description": "Scrollable row of pill-shaped buttons for quick selection. Unselected: transparent with white border. Selected/Hover: Solid primary orange.",
+      "testIds": ["quick-chip-gym", "quick-chip-salon", "quick-chip-restaurant", "quick-chip-real-estate", "quick-chip-hospital", "quick-chip-hotel", "quick-chip-school", "quick-chip-clinic"]
+    },
+    "StatsBox": {
+      "description": "Three bento-style cards for Total Leads, Has Website, No Website. Large numeric counters animating on load.",
+      "testIds": ["stat-total", "stat-website", "stat-nowebsite"]
+    },
+    "LeadCard": {
+      "description": "Displays business info (Name, Rating, Phone, Email, Address). Left 4px colored strip indicates category. 'No Website' badge is red. 'Has Website' is green. Includes Copy Phone button and WhatsApp button.",
+      "testIds": ["lead-card", "copy-phone-button", "whatsapp-button", "website-badge"]
+    },
+    "SkeletonCard": {
+      "description": "Shimmer effect loading state matching the LeadCard dimensions exactly. Should use bg-white/5 for skeleton blocks.",
+      "testIds": ["skeleton-card"]
+    },
+    "ExportModal": {
+      "description": "Scale animation on enter, heavily blurred backdrop (backdrop-blur-xl bg-black/60). Options for CSV, PDF, Excel.",
+      "testIds": ["export-modal", "export-csv-btn", "export-pdf-btn", "export-excel-btn"]
+    },
+    "PricingSection": {
+      "description": "Three tier cards: Free, Pro, Agency. Pro is highlighted with orange border and soft glow.",
+      "testIds": ["pricing-free", "pricing-pro", "pricing-agency"]
+    },
+    "ToastNotifications": {
+      "description": "Bottom right toast notifications with progress bar indicating time left.",
+      "testIds": ["toast-notification"]
+    }
+  },
+  "icons": {
+    "library": "lucide-react",
+    "usage": "Use strokeWidth={1.5} for a cleaner, premium look. Alternatively, use @phosphor-icons/react for duotone effects if preferred."
+  },
+  "accessibility": {
+    "contrast": "Ensure white text on #080808 background meets APCA standards.",
+    "focus": "Visible focus rings on all interactive elements, preferably using ring-[#FF6B2B]/50.",
+    "motion": "Respect prefers-reduced-motion media query for scale and slide animations."
+  },
+  "instructions_to_main_agent": [
+    "Install and setup Tailwind CSS with custom colors and fonts (Clash Display, DM Sans from Google Fonts).",
+    "Implement the grain overlay using a fixed div with the provided SVG data URI as background image.",
+    "Use framer-motion for all the specified stagger load animations, card stagger (80ms), and button scale effects.",
+    "Use 'react-countup' or framer-motion's animate function for the stats counters to count from 0 to target in 1 second.",
+    "Ensure all interactive elements have data-testid attributes exactly as specified.",
+    "Implement the glassmorphism strictly using background opacity (e.g. bg-white/[0.02]), backdrop-blur, and semi-transparent borders. Avoid solid backgrounds for cards.",
+    "Do NOT use generic AI aesthetics, no purple gradients; stick to the hard contrast between deep black #080808 and electric orange #FF6B2B.",
+    "Category strip on cards should be a 4px wide absolute div on the left edge with background color matched from the categoryStrips palette in these guidelines.",
+    "Setup Google OAuth for the login and signup page.",
+    "Implement 'data-testid' on all elements described in the components section to support automated testing."
+  ],
+  "image_urls": {
+    "grainTexture": {
+      "url": "data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E",
+      "description": "SVG noise for grain overlay. Set as background image on a fixed inset-0 div with opacity-30 and mix-blend-overlay."
+    }
+  }
+}
