@@ -4,13 +4,17 @@ from pydantic import BaseModel
 from typing import Optional, List
 from motor.motor_asyncio import AsyncIOMotorClient
 from datetime import datetime, timezone, timedelta
+from dotenv import load_dotenv
 import os
 import uuid
 import httpx
 import io
 import csv
 
-app = FastAPI(title="LeadRadar API")
+# Load environment variables
+load_dotenv()
+
+app = FastAPI(title="Lead Generator API")
 
 # CORS
 app.add_middleware(
@@ -24,12 +28,89 @@ app.add_middleware(
 # MongoDB
 MONGO_URL = os.environ.get("MONGO_URL", "mongodb://localhost:27017")
 DB_NAME = os.environ.get("DB_NAME", "leadradar")
+FOURSQUARE_API_KEY = os.environ.get("FOURSQUARE_API_KEY")
 
 client = AsyncIOMotorClient(MONGO_URL)
 db = client[DB_NAME]
 
 # Search cache
 search_cache = {}
+
+# Foursquare API function
+async def search_foursquare(city: str, niche: str) -> List[dict]:
+    """Search businesses using Foursquare Places API"""
+    if not FOURSQUARE_API_KEY:
+        print("No Foursquare API key configured - using mock data")
+        return []
+    
+    try:
+        async with httpx.AsyncClient() as client:
+            # Search for places
+            search_url = "https://api.foursquare.com/v3/places/search"
+            headers = {
+                "Authorization": FOURSQUARE_API_KEY,
+                "Accept": "application/json"
+            }
+            params = {
+                "query": niche,
+                "near": city,
+                "limit": 50,
+                "fields": "fsq_id,name,location,tel,website,rating,stats,email,hours"
+            }
+            
+            response = await client.get(search_url, headers=headers, params=params)
+            
+            if response.status_code == 401:
+                print(f"Foursquare API: Invalid API key - using mock data")
+                return []
+            
+            if response.status_code != 200:
+                print(f"Foursquare API error: {response.status_code} - {response.text}")
+                return []
+            
+            data = response.json()
+            places = data.get("results", [])
+            
+            businesses = []
+            for place in places:
+                location = place.get("location", {})
+                stats = place.get("stats", {})
+                
+                # Build address
+                address_parts = []
+                if location.get("address"):
+                    address_parts.append(location["address"])
+                if location.get("locality"):
+                    address_parts.append(location["locality"])
+                if location.get("region"):
+                    address_parts.append(location["region"])
+                if location.get("country"):
+                    address_parts.append(location["country"])
+                
+                full_address = ", ".join(address_parts) if address_parts else city
+                
+                website = place.get("website")
+                
+                businesses.append({
+                    "id": str(uuid.uuid4()),
+                    "name": place.get("name", "Unknown"),
+                    "phone": place.get("tel", "N/A"),
+                    "address": full_address,
+                    "email": place.get("email"),
+                    "website": website,
+                    "hasWebsite": bool(website),
+                    "rating": place.get("rating", 0) / 2,  # Foursquare uses 0-10, convert to 0-5
+                    "totalReviews": stats.get("total_ratings", 0),
+                    "category": niche,
+                    "placeId": place.get("fsq_id", "")
+                })
+            
+            print(f"Foursquare API: Found {len(businesses)} businesses for '{niche}' in '{city}'")
+            return businesses
+            
+    except Exception as e:
+        print(f"Foursquare API error: {e}")
+        return []
 
 # Models
 class SearchRequest(BaseModel):
@@ -124,8 +205,12 @@ async def search_businesses(request: SearchRequest):
     if cache_key in search_cache:
         return search_cache[cache_key]
     
-    # Generate mock data (demo mode)
-    businesses = generate_mock_businesses(city, niche)
+    # Try Foursquare API first, fall back to mock data
+    businesses = await search_foursquare(city, niche)
+    
+    if not businesses:
+        # Fallback to mock data if API fails or no key
+        businesses = generate_mock_businesses(city, niche)
     
     result = {
         "businesses": businesses,
