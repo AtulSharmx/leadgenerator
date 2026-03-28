@@ -24,27 +24,27 @@ function SearchBox({ onSearch, isLoading }) {
         <div className="flex flex-col md:flex-row gap-4 mb-6">
           {/* City Input */}
           <div className="flex-1 relative">
-            <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
+            <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted" />
             <input
               data-testid="city-input"
               type="text"
               value={city}
               onChange={(e) => setCity(e.target.value)}
               placeholder="Enter city name..."
-              className="w-full bg-white/[0.03] border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white placeholder-white/40 input-glow transition-all text-lg"
+              className="w-full bg-white border border-black/10 rounded-xl py-4 pl-12 pr-4 text-text-primary placeholder-text-muted input-glow transition-all text-lg focus:border-primary"
             />
           </div>
           
           {/* Niche Input */}
           <div className="flex-1 relative">
-            <Briefcase className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
+            <Briefcase className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted" />
             <input
               data-testid="niche-input"
               type="text"
               value={niche}
               onChange={(e) => setNiche(e.target.value)}
               placeholder="Business type (e.g., Cafe, Dentist, Plumber)..."
-              className="w-full bg-white/[0.03] border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white placeholder-white/40 input-glow transition-all text-lg"
+              className="w-full bg-white border border-black/10 rounded-xl py-4 pl-12 pr-4 text-text-primary placeholder-text-muted input-glow transition-all text-lg focus:border-primary"
             />
           </div>
         </div>
@@ -58,7 +58,7 @@ function SearchBox({ onSearch, isLoading }) {
           className={`w-full py-4 rounded-xl font-semibold text-lg transition-all relative overflow-hidden ${
             city && niche
               ? 'bg-gradient-to-r from-primary to-[#FF8B5B] text-white pulse-glow btn-shimmer'
-              : 'bg-white/10 text-white/40 cursor-not-allowed'
+              : 'bg-black/5 text-text-muted cursor-not-allowed'
           }`}
         >
           <span className="relative z-10 flex items-center justify-center gap-2">

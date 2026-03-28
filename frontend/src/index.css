@@ -10,8 +10,8 @@
 
 body {
   font-family: 'DM Sans', sans-serif;
-  background-color: #080808;
-  color: #FFFFFF;
+  background: linear-gradient(180deg, #E8E4F0 0%, #F5F3F0 15%, #FAF9F6 50%, #FAF9F6 100%);
+  color: #1A1A2E;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(0, 0, 0, 0.02);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -38,24 +38,14 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(255, 107, 43, 0.5);
 }
 
-/* Grain overlay */
-.grain-overlay {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  opacity: 0.03;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}
-
-/* Glass card */
+/* Glass card - light theme */
 .glass-card {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
 }
 
 .glass-card-hover {
@@ -63,9 +53,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass-card-hover:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 107, 43, 0.3);
-  box-shadow: 0 4px 32px rgba(255, 107, 43, 0.15);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 107, 43, 0.2);
+  box-shadow: 0 8px 32px rgba(255, 107, 43, 0.1);
   transform: translateY(-4px);
 }
 
@@ -73,9 +63,9 @@ h1, h2, h3, h4, h5, h6 {
 .shimmer {
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.05) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0.05) 100%
+    rgba(0, 0, 0, 0.03) 0%,
+    rgba(0, 0, 0, 0.06) 50%,
+    rgba(0, 0, 0, 0.03) 100%
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
@@ -106,7 +96,7 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.3),
     transparent
   );
   animation: btn-shimmer 2s infinite;
@@ -128,17 +118,17 @@ h1, h2, h3, h4, h5, h6 {
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(255, 107, 43, 0.3);
+    box-shadow: 0 0 20px rgba(255, 107, 43, 0.2);
   }
   50% {
-    box-shadow: 0 0 40px rgba(255, 107, 43, 0.6);
+    box-shadow: 0 0 40px rgba(255, 107, 43, 0.4);
   }
 }
 
-/* Input focus glow */
+/* Input focus glow - light theme */
 .input-glow:focus {
   border-color: #FF6B2B;
-  box-shadow: 0 0 0 3px rgba(255, 107, 43, 0.2);
+  box-shadow: 0 0 0 3px rgba(255, 107, 43, 0.15);
   outline: none;
 }
 

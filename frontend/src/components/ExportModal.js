@@ -84,7 +84,7 @@ function ExportModal({ isOpen, onClose, businesses, city, niche }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/60 backdrop-blur-xl z-50"
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50"
           />
           
           {/* Modal */}
@@ -96,20 +96,20 @@ function ExportModal({ isOpen, onClose, businesses, city, niche }) {
             transition={{ duration: 0.2, ease: 'easeOut' }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
           >
-            <div className="glass-card w-full max-w-md p-6" onClick={e => e.stopPropagation()}>
+            <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6" onClick={e => e.stopPropagation()}>
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
-                <h3 className="font-heading font-bold text-xl text-white">Export Leads</h3>
+                <h3 className="font-heading font-bold text-xl text-text-primary">Export Leads</h3>
                 <button
                   onClick={onClose}
-                  className="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"
+                  className="w-8 h-8 rounded-lg bg-black/5 hover:bg-black/10 flex items-center justify-center transition-colors"
                 >
-                  <X className="w-5 h-5 text-white/60" />
+                  <X className="w-5 h-5 text-text-muted" />
                 </button>
               </div>
               
               {/* Export count info */}
-              <p className="text-white/60 text-sm mb-6">
+              <p className="text-text-muted text-sm mb-6">
                 Exporting {businesses.length} leads from {niche} in {city}
               </p>
               
@@ -124,12 +124,12 @@ function ExportModal({ isOpen, onClose, businesses, city, niche }) {
                     whileTap={{ scale: 0.98 }}
                     className={`w-full flex items-center gap-4 p-4 rounded-xl border transition-all ${
                       exported === option.id
-                        ? 'bg-success/20 border-success/30'
-                        : 'bg-white/[0.03] border-white/10 hover:bg-white/[0.06] hover:border-primary/30'
+                        ? 'bg-success/10 border-success/30'
+                        : 'bg-white border-black/10 hover:border-primary/30 hover:shadow-sm'
                     }`}
                   >
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                      exported === option.id ? 'bg-success/20 text-success' : 'bg-primary/10 text-primary'
+                      exported === option.id ? 'bg-success/10 text-success' : 'bg-primary/10 text-primary'
                     }`}>
                       {exported === option.id ? (
                         <motion.div
@@ -146,10 +146,10 @@ function ExportModal({ isOpen, onClose, businesses, city, niche }) {
                       )}
                     </div>
                     <div className="flex-1 text-left">
-                      <div className="font-semibold text-white">{option.label}</div>
-                      <div className="text-sm text-white/50">{option.description}</div>
+                      <div className="font-semibold text-text-primary">{option.label}</div>
+                      <div className="text-sm text-text-muted">{option.description}</div>
                     </div>
-                    <Download className="w-5 h-5 text-white/30" />
+                    <Download className="w-5 h-5 text-text-muted" />
                   </motion.button>
                 ))}
               </div>

@@ -23,7 +23,7 @@ function Filters({ filters, setFilters }) {
       transition={{ duration: 0.3 }}
       className="flex flex-wrap gap-2 mb-6"
     >
-      <span className="text-white/40 text-sm mr-2 flex items-center">Filters:</span>
+      <span className="text-text-muted text-sm mr-2 flex items-center">Filters:</span>
       {filterOptions.map((option) => (
         <button
           key={option.id}
@@ -31,8 +31,8 @@ function Filters({ filters, setFilters }) {
           onClick={() => toggleFilter(option.id)}
           className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
             filters[option.id]
-              ? 'bg-primary/20 text-primary border border-primary/30'
-              : 'bg-white/[0.03] border border-white/10 text-white/60 hover:bg-white/[0.06] hover:text-white/80'
+              ? 'bg-primary/10 text-primary border border-primary/30'
+              : 'bg-white border border-black/10 text-text-secondary hover:border-black/20 hover:text-text-primary'
           }`}
         >
           {option.label}

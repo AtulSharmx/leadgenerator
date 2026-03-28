@@ -26,14 +26,14 @@ function LoginPage() {
   
   if (loading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
       </div>
     );
   }
   
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
         {/* Logo & Title */}
         <motion.div
@@ -43,14 +43,14 @@ function LoginPage() {
           className="text-center mb-8"
         >
           <div className="flex justify-center mb-4">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-[#FF8B5B] flex items-center justify-center shadow-lg shadow-primary/30">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-[#FF8B5B] flex items-center justify-center shadow-lg shadow-primary/20">
               <Zap className="w-9 h-9 text-white" />
             </div>
           </div>
-          <h1 className="font-heading text-3xl font-bold text-white mb-2">
+          <h1 className="font-heading text-3xl font-bold text-text-primary mb-2">
             Welcome Back
           </h1>
-          <p className="text-white/50">
+          <p className="text-text-muted">
             Sign in to start generating leads
           </p>
         </motion.div>
@@ -64,13 +64,13 @@ function LoginPage() {
         >
           {/* Features */}
           <div className="space-y-3 mb-8">
-            <div className="flex items-center gap-3 text-white/70">
+            <div className="flex items-center gap-3 text-text-secondary">
               <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                 <Sparkles className="w-4 h-4 text-primary" />
               </div>
               <span className="text-sm">Unlimited lead searches</span>
             </div>
-            <div className="flex items-center gap-3 text-white/70">
+            <div className="flex items-center gap-3 text-text-secondary">
               <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                 <Shield className="w-4 h-4 text-primary" />
               </div>
@@ -85,11 +85,11 @@ function LoginPage() {
             disabled={isRedirecting}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full flex items-center justify-center gap-3 py-4 px-6 rounded-xl bg-white text-gray-800 font-semibold hover:bg-gray-50 transition-all shadow-lg disabled:opacity-70"
+            className="w-full flex items-center justify-center gap-3 py-4 px-6 rounded-xl bg-text-primary text-white font-semibold hover:bg-text-primary/90 transition-all shadow-lg disabled:opacity-70"
           >
             {isRedirecting ? (
               <>
-                <div className="w-5 h-5 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                 <span>Redirecting...</span>
               </>
             ) : (
@@ -120,13 +120,13 @@ function LoginPage() {
           
           {/* Divider */}
           <div className="flex items-center gap-4 my-6">
-            <div className="flex-1 h-px bg-white/10" />
-            <span className="text-xs text-white/30 uppercase tracking-wider">Secure & Fast</span>
-            <div className="flex-1 h-px bg-white/10" />
+            <div className="flex-1 h-px bg-black/10" />
+            <span className="text-xs text-text-muted uppercase tracking-wider">Secure & Fast</span>
+            <div className="flex-1 h-px bg-black/10" />
           </div>
           
           {/* Info */}
-          <p className="text-white/30 text-xs text-center">
+          <p className="text-text-muted text-xs text-center">
             By signing in, you agree to our Terms of Service and Privacy Policy.
             Your data is encrypted and secure.
           </p>
@@ -139,7 +139,7 @@ function LoginPage() {
           transition={{ delay: 0.3 }}
           className="text-center mt-6"
         >
-          <a href="/" className="text-white/40 hover:text-white/60 text-sm transition-colors">
+          <a href="/" className="text-text-muted hover:text-text-primary text-sm transition-colors">
             ← Back to Home
           </a>
         </motion.div>

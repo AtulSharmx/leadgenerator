@@ -8,7 +8,6 @@ function StatsBox({ total, hasWebsite, noWebsite, isVisible }) {
   
   useEffect(() => {
     if (isVisible) {
-      // Small delay to ensure animation triggers after component mounts
       const timer = setTimeout(() => setStartCount(true), 100);
       return () => clearTimeout(timer);
     }
@@ -72,7 +71,7 @@ function StatsBox({ total, hasWebsite, noWebsite, isVisible }) {
                   '0'
                 )}
               </div>
-              <div className="text-sm text-white/60">{stat.label}</div>
+              <div className="text-sm text-text-muted">{stat.label}</div>
             </div>
           </div>
         </motion.div>

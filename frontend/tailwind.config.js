@@ -7,11 +7,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: '#080808',
+        background: '#FAF9F6',
         primary: '#FF6B2B',
         'primary-hover': '#E55A1F',
-        surface: 'rgba(255, 255, 255, 0.02)',
-        'surface-border': 'rgba(255, 255, 255, 0.08)',
+        surface: 'rgba(255, 255, 255, 0.8)',
+        'surface-border': 'rgba(0, 0, 0, 0.06)',
+        'text-primary': '#1A1A2E',
+        'text-secondary': '#4A4A68',
+        'text-muted': '#8A8AA3',
         success: '#22C55E',
         error: '#EF4444',
         warning: '#EAB308',
@@ -35,8 +38,8 @@ module.exports = {
           '100%': { backgroundPosition: '200% 0' }
         },
         'pulse-glow': {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(255, 107, 43, 0.3)' },
-          '50%': { boxShadow: '0 0 40px rgba(255, 107, 43, 0.6)' }
+          '0%, 100%': { boxShadow: '0 0 20px rgba(255, 107, 43, 0.2)' },
+          '50%': { boxShadow: '0 0 40px rgba(255, 107, 43, 0.4)' }
         },
         'slide-up': {
           '0%': { transform: 'translateY(20px)', opacity: '0' },

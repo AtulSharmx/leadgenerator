@@ -62,20 +62,20 @@ function AuthCallback() {
   }, [navigate, setUser, addToast]);
   
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center">
       <motion.div 
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         className="text-center"
       >
         <div className="flex justify-center mb-6">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-[#FF8B5B] flex items-center justify-center shadow-lg shadow-primary/30">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-[#FF8B5B] flex items-center justify-center shadow-lg shadow-primary/20">
             <Zap className="w-9 h-9 text-white" />
           </div>
         </div>
         <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-4" />
-        <p className="text-white font-medium">Signing you in...</p>
-        <p className="text-white/40 text-sm mt-1">Please wait a moment</p>
+        <p className="text-text-primary font-medium">Signing you in...</p>
+        <p className="text-text-muted text-sm mt-1">Please wait a moment</p>
       </motion.div>
     </div>
   );

@@ -109,7 +109,7 @@ function HomePage() {
   const filteredBusinesses = getFilteredBusinesses();
   
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Navbar />
       
       <main className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -122,7 +122,7 @@ function HomePage() {
             transition={{ duration: 0.5 }}
             className="flex justify-center mb-6"
           >
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-[#FF8B5B] flex items-center justify-center shadow-lg shadow-primary/30">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-[#FF8B5B] flex items-center justify-center shadow-lg shadow-primary/20">
               <Zap className="w-9 h-9 text-white" />
             </div>
           </motion.div>
@@ -132,7 +132,7 @@ function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight"
+            className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary mb-4 tracking-tight"
           >
             Find Business <span className="text-primary">Leads</span> Fast
           </motion.h1>
@@ -141,7 +141,7 @@ function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-white/60 text-lg max-w-2xl mx-auto"
+            className="text-text-muted text-lg max-w-2xl mx-auto"
           >
             Discover real businesses with contact details, ratings, and website status. 
             Perfect for agencies, freelancers, and sales teams.
@@ -182,7 +182,7 @@ function HomePage() {
                   data-testid="export-button"
                   onClick={() => setShowExportModal(true)}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-[#FF8B5B] text-white font-semibold btn-shimmer relative overflow-hidden"
+                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-[#FF8B5B] text-white font-semibold btn-shimmer relative overflow-hidden shadow-lg shadow-primary/20"
                 >
                   <Download className="w-5 h-5" />
                   Export Leads
@@ -207,7 +207,7 @@ function HomePage() {
                 )}
                 
                 {/* Showing count */}
-                <div className="text-center text-white/40 text-sm mt-6">
+                <div className="text-center text-text-muted text-sm mt-6">
                   Showing {displayedLeads.length} of {filteredBusinesses.length} leads
                 </div>
               </>
@@ -225,7 +225,7 @@ function HomePage() {
             transition={{ delay: 0.6 }}
             className="text-center py-16"
           >
-            <p className="text-white/40">
+            <p className="text-text-muted">
               Enter a city and business type above to start finding leads
             </p>
           </motion.div>
